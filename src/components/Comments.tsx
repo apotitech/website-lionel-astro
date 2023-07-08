@@ -15,8 +15,8 @@ const Comments = () => {
       {mounted ? (
         <Giscus
           id={id}
-          repo="thomasledoux1/website-thomas-astro"
-          repoId="R_kgDOH6NmQw"
+          repo="apotitech/website-lionel-astro"
+          repoId="R_kgDOJ5AE-A"
           category="Announcements"
           categoryId="DIC_kwDOH6NmQ84CXS3y"
           mapping="pathname"
