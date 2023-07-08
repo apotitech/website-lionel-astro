@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+export async function getStaticPaths() {
+  const blogs = await getCollection('blog', blog => blog.data.draft !== true);
+  return blogs.map(blog => ({
+    params: { slug: blog.slug },
+    props: { entry: blog },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content, remarkPluginFrontmatter } = await entry.render();
+---
+
+<BlogLayout
+  frontmatter={{
+    ...entry.data,
+    url: `/blog/${entry.slug}`,
+    minutesRead: remarkPluginFrontmatter?.minutesRead,
+  }}
+>
+  <Content />
+</BlogLayout>
