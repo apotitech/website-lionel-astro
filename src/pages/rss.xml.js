@@ -7,7 +7,7 @@ export const get = async () => {
   return rss({
     title: 'Blog by Lionel Tchami',
     description:
-      'Blog by Lionel Tchami. Writes about DevOps/Python/AI/Cloud Tech/Astro. Always looking to learn about the newest technologies and features.',
+      'Blog by Lionel Tchami. Writes about Python/Cloud/DevOps/SDLC/AI. Always looking to learn about the newest technologies and features.',
     site: import.meta.env.SITE,
     items: blogs.map(post => ({
       link: `/blog/${post.slug}`,
