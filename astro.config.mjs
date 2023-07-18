@@ -35,5 +35,5 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkReadingTime],
   },
-  site: 'https://www.thomasledoux.be',
+  site: 'https://www.softwaresennin.dev',
 });

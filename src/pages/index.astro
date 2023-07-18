@@ -5,7 +5,7 @@ import Layout from '../layouts/Layout.astro';
 import { calculateBlurhashGradient } from '../utils/calculate-blurhash-gradient';
 const [blurhashGradient, blogs] = await Promise.all([
   calculateBlurhashGradient(
-    'https://res.cloudinary.com/dzrea5zhv/image/upload/v1583171588/me_qvrwky.jpg'
+    "https://res.cloudinary.com/dezp6utan/image/upload/v1689638869/picccc_kitn8y.jpg"
   ),
   getCollection('blog', blog => blog.data.draft !== true),
 ]);
@@ -33,9 +33,9 @@ const latestBlog = blogs.sort(
         <img
           class="rounded-full mx-auto md:ml-auto lg:mr-0 aspect-square max-w-[15rem] lg:max-w-[20rem] max-h-[15rem] lg:max-h-[20rem] w-full"
           alt="Profile"
-          src="https://res.cloudinary.com/dzrea5zhv/image/upload/v1686332621/1685639156921_x0ltzi.jpg"
+          src="https://res.cloudinary.com/dezp6utan/image/upload/v1689638870/picccc1_dtttbg.jpg"
           sizes="(max-width: 1023px) 240px, 320px"
-          srcset="https://res.cloudinary.com/dzrea5zhv/image/upload/w_360,h_360,c_lfill,f_auto/v1686332621/1685639156921_x0ltzi.jpg 240w, https://res.cloudinary.com/dzrea5zhv/image/upload/v1686332621/1685639156921_x0ltzi.jpg"
+          srcset="https://res.cloudinary.com/dezp6utan/image/upload/v1689638869/headshot_rdmq0c.jpg"
           loading="eager"
           style={{ background: blurhashGradient }}
         />
