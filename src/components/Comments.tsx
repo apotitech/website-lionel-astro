@@ -15,10 +15,10 @@ const Comments = () => {
       {mounted ? (
         <Giscus
           id={id}
-          repo="apotitech/website-lionel-astro"
-          repoId="R_kgDOJ5AE-A"
-          category="Announcements"
-          categoryId="DIC_kwDOH6NmQ84CXS3y"
+          repo="apotitech/webpage_comments"
+          repoId="R_kgDOKAJaQw"
+          category="Ideas"
+          categoryId="DIC_kwDOKAJaQ84CYJzk"
           mapping="pathname"
           reactionsEnabled="1"
           emitMetadata="0"
