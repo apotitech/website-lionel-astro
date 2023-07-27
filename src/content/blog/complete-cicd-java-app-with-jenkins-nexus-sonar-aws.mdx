@@ -14,11 +14,11 @@ Let's join hands and explore the magic of Jenkins, Nexus, SonarQube, AWS ECR & E
 So, grab your virtual hardhats, and let's build an amazing and automated workflow that'll make our Java development dreams come true! 🛠️💻 
 
 ![text](https://github.com/apotitech/photos_document_md/raw/master/src/common/photos/here%20we%20go.gif "text")
-
+<br></br>
 Let's jump right in and embrace the power of modern DevOps tools! 🌈💪
 
 First off .... let us look at the recipe of doing this project.
-
+<br></br>
 ## Prerequisites
 
 - AWS Account
@@ -27,7 +27,7 @@ First off .... let us look at the recipe of doing this project.
 - Nexus
 - SonarQube
 - Slack
-
+<br></br>
 🌐 **AWS Account**: Our cloud powerhouse! 🏢 AWS (Amazon Web Services) provides the infrastructure for deploying, scaling, and managing our application in the cloud. With AWS, we'll have a reliable and flexible environment to run our CI/CD processes and deliver our app to the world! 🌍💻
 
 🐙 **GitHub Account**: Our coding playground! 🚀 GitHub is where we'll host our Java application's source code, enabling collaboration, version control, and seamless integration with other DevOps tools. Get ready to explore the wonders of collaboration and open-source development! 🤝💻
@@ -43,9 +43,9 @@ First off .... let us look at the recipe of doing this project.
 Get ready to rock this CI/CD adventure! 🎉 Together, we'll automate, innovate, and create an impressive Java application that shines brightly in our tech galaxy! 🌌💫 Let's fire up those keyboards and make our DevOps dreams come true! 💪🔥
 
 ![CICD](https://miro.medium.com/v2/resize:fit:786/format:webp/0*n8m1Hqrg40oobuEV.png)
-
+<br></br>
 Please click [here](https://github.com/apotitech/vprociproject/tree/main) to view the source code for this project.
-
+<br></br>
 ## First Phase - Continuous Integration 
 
 ## Step 1. Configure AWS Console
@@ -174,26 +174,26 @@ docker exec -it cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
 ![Unlock Jenkins](https://res.cloudinary.com/practicaldev/image/fetch/s--FOk5n21M--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://github.com/apotitech/photos_document_md/raw/master/src/common/photos/j2a.png)
-
+<br></br>
 We have our Jenkins credential and we can now access our Jenkins console in our browser. To do that, we will copy the public IP of our Jenkins-EC2, paste it in the browser and add our `8080` Jenkins port to access it. 
 ```html
 http://<public_ip_of_jenkins_server>:8080
 ```
 
 ![ec2](https://miro.medium.com/v2/format:webp/1*GKGzd790C9RCmjTOk-OTvw.png)
-
+<br></br>
 Yay!!!!!!! We have successfully created our Jenkins server. Now we will use the password we got in the previous step to `Unlock Jenkins`
 
 ![Unlock](https://miro.medium.com/v2/resize:fit:720/format:webp/1*IJw_AktyBOmW0MlCeBbysQ.png)
-
+<br></br>
 To install commonly used plugins, select Install suggested plugins:
 
 ![Customize](https://miro.medium.com/v2/resize:fit:720/format:webp/1*jlJ6JxOkV1-IVL1eEDopvg.png)
-
+<br></br>
 ![jenk](https://miro.medium.com/v2/resize:fit:720/format:webp/1*_q6iwZSxdtcLsrkrrbVR6g.png)
-
+<br></br>
 ![j](https://miro.medium.com/v2/resize:fit:720/format:webp/1*EQgUVY1-eTCl0VSAIdocOw.png)
-
+<br></br>
 Great work so far, getting so far!!! .. Kudos.....
 
 Next we will need to install some plugins into our Jenkins server. This will enable our Jenkins server to effectively work as our CI tool.
@@ -202,18 +202,18 @@ First, let us look at how to install plugins to our Jenkins server.
 
 To do so, click on the `Manage Jenkins` button on the left pane of our Jenkins console.
 ![manage](https://www.easyaslinux.com/wp-content/uploads/2019/03/Install-Jenkins-plugin-manage-Jenkins.png)
-
+<br></br>
 Next, scroll down a tad bit and Click on `Manage Plugins` .
 ![manage](https://www.easyaslinux.com/wp-content/uploads/2019/03/Install-Jenkins-plugin-manage-plugins.png)
-
+<br></br>
 Next, click on the `Available` tab on the left pane. You will see a filter button on the top right corner of our Jenkins console, there we will type what we want to install. Once you find all the plugins you are looking for, make sure to tick on the boxes on the left of the plugins, then click on the button `Install without restart`. 
 
 In this example, I will search for `maven`.
-
+<br></br>
 ![manage](https://www.toolsqa.com/gallery/Jenkins/3.maven%20plugin%20in%20jenkins.png)
-
+<br></br>
 ![maven](https://www.fosstechnix.com/wp-content/uploads/2021/05/install-maven-integration-plugin-in-jenkins_3-1024x599.png)
-
+<br></br>
 Make sure to do the same steps above to install all the plugins below
 ```
 Maven Integrator
@@ -234,7 +234,7 @@ Pipeline: AWS Steps
 Good job **setting up** our Jenkins server. 
 
 ![manage](https://media.tenor.com/pi_bSmpi_BUAAAAC/leonardo-dicaprio-cheers.gif)
-
+<br></br>
 Next we will set up our Nexus server. As you may already know, Nexus is a Repository tools similar to Docker Hub. So this is the place where the artifact that our Jenkins server will create, will be kept. 
 
 First, we will SSH to our Nexus server like we did before with our Jenkins server. Next, we will go to our browser and sign into our Nexus server. Nexus app uses port `8081` and that is why we opened up that port when setting up our nexus-SG. 
@@ -289,7 +289,7 @@ Member repositories:
 ```
 Let us look at what our repos on Nexus look like after having created all our repos.
 ![nexus](https://miro.medium.com/v2/resize:fit:786/format:webp/1*LlDq0IhzbiT-Kn97AmOPNQ.png)
-
+<br></br>
 Now, if you want you can login again to your Nexus repo, go to your browser, and login with username - `admin` and password - `admin`
 ```html
 http://<public_ip_of_sonar_server>:8081
@@ -340,9 +340,9 @@ wget https://dlcdn.apache.org/maven/maven-3/3.9.3/binaries/apache-maven-3.9.3-bi
 tar -xzf apache-maven-3.9.3-bin.tar.gz
 cd apache-maven-3.9.3
 ```
-
+<br></br>
 Now that maven is installed, we need to get the path where we have just installed it. We will do the `ls` command to get that
-
+<br></br>
 ```bash
 [root@ip-10-0-0-25 apache-maven-3.6.0]# pwd
 /opt/maven/apache-maven-3.9.3
@@ -368,7 +368,7 @@ java-1.8.0-openjdk-amd64 java-8-openjdk-amd64
 ```
 
 ![jdk](https://1.bp.blogspot.com/-qU4i2pBmiF0/X0_5I0gsSFI/AAAAAAAAC9Y/OpA8kGH9e0Mt2hy3oN4v5bEazBMzkzCvQCLcBGAsYHQ/s1238/Java%2Binstall.png)
-
+<br></br>
 Please make note of the locations of our Java installations as we will use it in the next step as our `JAVA_HOME` variable on our Jenkins server.
 
 ### Step 3.2 Setting up Java & Maven on Jenkins server
@@ -376,7 +376,7 @@ On your Jenkins welcome page, go to -> `Manage Jenkins` on the left pane -> Clic
 Go down to `JDK` and -> Add `JDK`. 
 
 ![JDK](https://miro.medium.com/v2/resize:fit:720/format:webp/1*pF4v60r9kKzNvpifZ9Sh5A.png)
-
+<br></br>
 ```bash
 Name: Java_Home
 # Make sure to *UNTICK* - Install Automatically
@@ -387,7 +387,7 @@ JAVA_HOME: /usr/lib/jvm/java-11-openjdk-amd64
 Again, we will scroll down and continue configuring. Scroll down to `Maven` and -> Add `Maven`.
 
 ![maven](https://qaautomationexpert.files.wordpress.com/2022/10/image-104.png?w=1066)
-
+<br></br>
 ```bash
 Name: MAVEN_HOME
 # Make sure to *UNTICK* - Install Automatically
@@ -396,7 +396,7 @@ MAVEN_HOME: /opt/maven/apache-maven-3.9.3
 ```
 
 ![mav](https://qaautomationexpert.files.wordpress.com/2022/10/image-107.png?w=1200)
-
+<br></br>
 ### Step 3.2 Setting up Nexus on our Jenkins server
 
 Now let us go ahead and setup our Nexus app on our Jenkins server. We will be adding the credentials.
@@ -460,23 +460,23 @@ Branch: */ci-jenkins
 path: Jenkinsfile
 ```
 ![pip](https://www.simplilearn.com/ice9/free_resources_article_thumb/Pipeline.JPG)
-
+<br></br>
 Give any name you want to your job. I called mine `Pipeline`. Now we scroll down ...
 
 ![j](https://www.simplilearn.com/ice9/free_resources_article_thumb/GitHub_Maven.JPG)
-
+<br></br>
 Some steps will appear on your screen. The next step is for us to integrate the Jenkinsfile in our SCM tool (Github).
 
 To do that, we must select ‘`Pipeline script from SCM`’.
 ![pipeline](https://www.simplilearn.com/ice9/free_resources_article_thumb/Pipeline_script_from_SCM.JPG)
-
+<br></br>
 So now in the SCM dialog box, select Git.
 - Add the [Github](https://github.com/apotitech/vprociproject/tree/main) repository URL. - `https://github.com/apotitech/vprociproject`
 - You can add the credentials if any.
 - `Jenkinsfile` is the name of the Script, so we will add it to the script path at the bottom
 
 ![jenk](https://www.simplilearn.com/ice9/free_resources_article_thumb/Git_Repository.JPG)
-
+<br></br>
 ### Step 4.1 Build Time
 
 Now we can start cooking / building with Jenkins. Before we do this, let us setup the webhook which will trigger builds on Jenkins whenever there is a change on our Github repository.
@@ -489,10 +489,10 @@ https://<Jenkins-EC2-URL:8080/github-webhook/
 Next, we will add this parameter to our Jenkins job. So we will go back to our `Jenkins` server and add the configuration below to our pipeline job. Scroll down to the `Build Trigger` page of our Pipeline Jenkins job and tick the `4` which is`GitHub hook trigger for GITScm polling`.
 
 ![poll](https://www.toolsqa.com/gallery/Jenkins/16.Maven%20project%20execution%20in%20Jenkins.png)
-
+<br></br>
 So now that we have done this config changes, anytime we do a `git push` to the Github repo which we are using, it will trigger a Jenkins build process.
 ![job](https://miro.medium.com/v2/resize:fit:786/format:webp/1*zmAZ9kzMLyqiaLhH2rO7MA.png)
-
+<br></br>
 ## Step 5. Analyzing Code with SonarQube
 
 So far, we have setup our servers, configured our jobs and ran a successful test pipeline. Now, we will proceed with code analysis. For this, we will need SonarScanner plugin added to Jenkins so it can scan our code. Secondly, we need Sonarqube info in Jenkins so it will know where to upload reports of the scanned code. 
@@ -504,8 +504,9 @@ For us to Integrate the Jenkins DevOps environment with our Sonarqube installati
 
 Our generated token will be used later, in Jenkins for Sonar authentication. 
 ![son](https://www.tatvasoft.com/blog/wp-content/uploads/2020/10/Sonar-authentication.png)
-
+<br></br>
 ![sonar](https://www.tatvasoft.com/blog/wp-content/uploads/2020/10/Tokens-Administrator.png)
+<br></br>
 Now generate token with an appropriate name, which is under `Administration` -> `Security` -> `Users` ->`Tokens`.
 
 In the previous step, we already added the sonar scanner when installing our plugins. Now we will go and configure it. - Go to `Manage Jenkins` -> `Global Tool Configuration`
@@ -526,6 +527,7 @@ ADD sonarqube
 ```
 
 ![jenkson](https://www.tatvasoft.com/blog/wp-content/uploads/2020/10/Generated-token.png)
+<br></br>
 We have almost finished setting up our Sonarqube so we can start testing. Now we need to add our sonarqube credentials.
 
 Go to `Manage Jenkins` -> `Manage Credentials` -> `Global` -> `Add Credentials`.
@@ -537,8 +539,9 @@ name: sonartoken
 description: sonartoken
 ```
 ![sonar](https://www.tatvasoft.com/blog/wp-content/uploads/2020/10/Jenkins-Credential.png)
-
+<br></br>
 ![test](https://cloudsbaba.com/wp-content/uploads/2021/02/29_file.png)
+<br></br>
 That was quite a little long, awesome job making it so far!!!!!!!
 
 Adding Sonarqube to our Jenkinsfile
@@ -568,21 +571,21 @@ SONARSCANNER = 'sonarscanner'
 Our job was a total success. Next, let us go `view the SonarQube server's` quality gate results. Note that we can also design our own Quality Gates for our project. This is what mine looks like now. 
 
 ![test](https://miro.medium.com/v2/resize:fit:786/format:webp/1*h_APHKLxRYiZxEh6iZTTLA.png)
-
+<br></br>
 We have gotten the analysis of our build results. Next we need to get this to our Jenkins server. To do this, we'll develop a Webhook. We will create this webhook in our Sonarqube console
 
 #### Step 5.2 Creating a webhook in Sonarqube
 
 For us to create a webhook at the project level, first we will navigate to the `Projects` tab, click on the name of your project, and then `Project Settings` > `Webhooks`.
 ![hook](https://thetechdarts.com/wp-content/uploads/2022/05/Point-Blur_May122022_131834-1024x275.jpg)
-
+<br></br>
 Next click on `Create` at the top right corner and this screen below will appear. Next, go ahead and type in the `_Name_` of the webhook. `_URL_` should be your URL for Jenkins followed by /sonarqube-webhook. Save the webhook and we are all set.
 ```
 http://<jenkins_ec2_instance_ip>:8080/sonarqube-webhook
 ```
 
 ![webhook](https://thetechdarts.com/wp-content/uploads/2022/04/Screenshot_20220428_200316-600x853.jpg)
-
+<br></br>
 Our webhook has been setup and now we can proceed. We will add another stage to our Jenkinsfile. This is what the code block looks like
 ```
 stage('QUALITY GATE') {  
@@ -634,7 +637,7 @@ Again, we go ahead and run our pipeline again ....
 **Success!!!!** 
 
 ![yay](https://media.tenor.com/vKVwlQ61o7EAAAAC/anime.gif)
-
+<br></br>
 The build is successful and this time, our artifact is uploaded to our Nexus repo.
 
 Great job making it so far. Stopping here, it will still be a huge endeavor on our part creating such a magnificent pipeline piece by piece all from the ground up. 
@@ -646,8 +649,10 @@ For those who want to continue, next we will be adding `slack notifications` to 
 Let's begin by setting up Slack so Jenkins can communicate with it. We'll build a custom Slack app—which needs an Administrator account—to accomplish this.
 
 We'll make an application in Slack and generate an OAuth token. Here are the steps
-
+<br></br>
 First go to https://api.slack.com.
+
+```
 - Open the desired workspace and log in.
 - Select "`Start Building`" from the menu.
 - Give it a name (like `jenkins-cicd`) and select` Create App`.
@@ -655,7 +660,9 @@ First go to https://api.slack.com.
 - In the`Bot Token Scopes section`, add `chat: write scope`
 - Select "`Install App to Workspace`"
 - Select "`Accept`" from the menu.
+```
 
+Let us take a look at the information we will fill there:-
 ```
 Workspace: softwaresennin (in the workspace url softwaresennin.slack.com)  
 credential: `slacktoken`  
@@ -664,7 +671,7 @@ default channel: #jenkins-cicd
 
 When it's finished, a summary screen will appear:
 ![f](https://www.baeldung.com/wp-content/uploads/2020/02/jenkins-slack-token.jpg)
-
+<br></br>
 We must now remember to save the `OAuth token` because we'll need it to set up Jenkins later. These credentials need to be protected and kept safe.
 
 Now, we need to invite Jenkins user to the channels that we want it to use, in order to finish the Slack setup. Mentioning the new user inside each channel using the `@` character is one quick way to achieve this.
@@ -674,20 +681,20 @@ Now let us go and setup slack in our Jenkins console. Let us go to _Manage Jenk
 Then, on the _Available_ tab, we'll search for _Slack_:
 
 ![test](https://www.baeldung.com/wp-content/uploads/2020/02/jenkins-slack-install-plugin-scaled-e1580765642153.jpg)
-
+<br></br>
 Let's click `Install without restart`after selecting the `Slack Notification` checkbox.
 
 We must now set up new credentials. Let's add a new Secret text credential by going to `Jenkins` > `Credentials` > `System` > `Global Credentials`:
 
 ![er](https://www.baeldung.com/wp-content/uploads/2020/02/jenkins-slack-credential-e1580765880727.jpg)
-
+<br></br>
 
 We'll `enter the Slack OAuth token in the Secret field`. To make them easier to find later, we should additionally give these credentials a relevant ID and description. This token should be stored safely in the Jenkins credentials store.
 
 There is still one more global configuration to configure after saving the credentials. It is necessary to choose the `Custom slack app bot user` checkbox under the Slack section under `Jenkins` > `Manage Jenkins` > `Configure System`:
 
 ![ret](https://www.baeldung.com/wp-content/uploads/2020/02/jenkins-slack-settings-custom-bot-checkbox.jpg)
-
+<br></br>
 Now let us add the code block for this slack notification
 
 ```groovy
@@ -709,11 +716,11 @@ We have built a really great cicd pipeline so far, let us take a look at the ent
 
 ![pipe](https://miro.medium.com/v2/resize:fit:786/format:webp/0*zaSTu8zxGlC9WqfK.png)
 
-
+<br></br>
 > Congratulations to completing the first part of our CI/CD pipeline, the Continuous Integration phase. Now we go to the Continuous Delivery phase.
 
 ![pipe](https://media.tenor.com/0s7h3PrA46gAAAAC/congratulations-congrats.gif)
-
+<br></br>
 ## Second Phase - Continuous Delivery 
 
 We will begin this second phase by creating another git branch. To do this, we can create this new branch on our girhub account or clone it first to our local machine and then do this.
@@ -740,22 +747,22 @@ We now need out Jenkins to connect to our ECR. This means we need to create IAM 
 
 Let us now proceed and create our ECR repo, we will call it `profileappimg`
 ![wer](https://miro.medium.com/v2/resize:fit:786/format:webp/1*ZISKSl7OjSWq0aG8859QXg.png)
-
+<br></br>
 To proceed, we need to first add our AWS credentials to our Jenkins console. We already installed the `Cloudbees AWS Credentials` plugin when we were adding all the other plugins. Here is a screenshot of that.
 ![er](https://howtoforge.com/ezoimgfmt/www.howtoforge.com/images/how_to_store_aws_user_access_key_and_secret_key_in_jenkins/screenshot_2021-02-14_at_85001_pm.png?ezimgfmt=rs:750x235/rscb10/ng:webp/ngcb9)
-
+<br></br>
 ![install](https://howtoforge.com/ezoimgfmt/www.howtoforge.com/images/how_to_store_aws_user_access_key_and_secret_key_in_jenkins/screenshot_2021-02-14_at_85035_pm.png?ezimgfmt=rs:750x468/rscb10/ng:webp/ngcb9)
-
+<br></br>
 Next ... we add our credentials to our Jenkins console. First -> `Manage Jenkins` -> `Security`  `Manage Credentials` -> Click on `Global` then -> `Stores scoped to Jenkins` -> `Add credentials`
 ![cred](https://howtoforge.com/ezoimgfmt/www.howtoforge.com/images/how_to_store_aws_user_access_key_and_secret_key_in_jenkins/screenshot_2021-02-14_at_85300_pm.png?ezimgfmt=rs:750x256/rscb10/ng:webp/ngcb9)
-
+<br></br>
 Now that we are on this page, we will be able to `store` the secrets -> Click on the `Kind` drop-down and select `AWS`. Specify a name for the `secrets`, `description`, `Access Key ID` and `Secret Access Key`. Click on `OK` to store the secrets.
 
 ![as](https://howtoforge.com/ezoimgfmt/www.howtoforge.com/images/how_to_store_aws_user_access_key_and_secret_key_in_jenkins/screenshot_2021-02-14_at_85629_pm.png?ezimgfmt=rs:750x264/rscb10/ng:webp/ngcb9)
-
+<br></br>
 Now we have added our secret
 ![creds](https://howtoforge.com/ezoimgfmt/www.howtoforge.com/images/how_to_store_aws_user_access_key_and_secret_key_in_jenkins/screenshot_2021-02-14_at_85649_pm.png?ezimgfmt=rs:750x164/rscb10/ng:webp/ngcb9)
-
+<br></br>
 Our next step, is to install Docker in our Jenkins server.
 
 ### Setup Docker in Jenkins EC2 
@@ -852,7 +859,7 @@ Grace period: 30
 We now need to update the port to `8080` in both the `target group` and `security group`. We can now go to the page of our app and it is working. Our service is running, we can check the app from the browser using the ALB URL. Let us check our cluster
 
 ![ecs](https://miro.medium.com/v2/resize:fit:786/format:webp/1*WkCHB6rLN9tn19M0lUJM8A.png)
-
+<br></br>
 Our next step is to add the `deploy stage` to `Jenkinsfile` along with `two new variables`. Now that this is done, we need to now `Commit/push` changes to `GitHub` and this should `trigger` our pipeline `automatically`. 
 
 Let us add that step to our `Jenkinsfile`
@@ -874,13 +881,13 @@ stage('Deploy to ECS Staging') {
 **Yay!!!!!!!!!!!!!!!!!!!!!!!!!!!!!** 
 
 ![ecs](https://media.tenor.com/GGA8K8d9L7kAAAAC/hyouka-chitanda-eru.gif)
-
+<br></br>
 You made it this far!!!!! That is an amazing accomplishment. Many people start but do not get to the end of such long tutorials. Kudos to you getting this far. 
-
+<br></br>
 It took me about 3 days to complete this article. 
-
+<br></br>
 ![ecs](https://media.tenor.com/SmaOtkf3EsIAAAAC/one-piece-himbo-oden.gif)
-
+<br></br>
 I am so glad it is finally done. It has been a real journey for me as it has been for you, putting all these together into so much details. I hope this has been as interesting and great as it has been to me.
-
+<br></br>
 > Thank you for taking the time to read this! If you like the article, please clap (up to 50 times!) and connect with me on [LinkedIn](https://www.linkedin.com/in/apotitech-b79097210/),  [Medium](https://medium.com/@softwaresennin) and [Dev.to](https://dev.to/softwaresennin) to remain up to speed on my future articles. 😅
