@@ -1,0 +1,216 @@
+---
+title: 'Jenkins 101: Getting started with Jenkins'
+tags: ['jenkins', 'devops', 'cicd']
+date: '2023-06-28T16:14:39.004Z'
+image: 'https://res.cloudinary.com/dezp6utan/image/upload/v1690586745/g3kilop31d778vfhc9iv_wsuz7m.webp'
+imageAlt: 'Jenkins 101'
+---
+
+### Who or What is Jenkins
+
+Jenkins is a free and open-source CI/CD server. The Java-based application serves as a platform for development, testing, and release.
+
+![text](https://github.com/apotitech/photos_document_md/raw/master/src/common/photos/j1.png "text")
+
+### So, Why Jenkins ?
+
+Gitlab CI/CD, GitHub CI/CD, CircleCI, Travis CI, Bitbucket pipeline, etc. are just a few of the CI/CD technologies poopularly used. Depending on the situation, several tools can be used to their full potential. However, Jenkins has a few advantages that makes it preferable in comparison to its rivals.
+
+To begin, as we shall see when we perform the setup, installation and configuration are quick and easy. The platform's web-based administration is user-friendly, allowing for a wide range of customization in construction processes. For more versatility and personalization, it makes use of a plugin ecosystem. Scalability is provided via Jenkins' decentralised build agents and executors. Finally, the thriving community of users and thorough online documentation are invaluable resources.
+
+## The Jargon of Jenkins
+
+![text](https://github.com/apotitech/photos_document_md/raw/master/src/common/photos/j2.png "text")
+
+### 1. Jenkins Master Node
+The Jenkins administrative dashboard is hosted on the Jenkins controller/master. It provides a web-based administrative portal for setting up build jobs, pipelines, and plugins. The master coordinates the scheduling and distribution of build jobs to the build agents.
+
+### 2. Jenkins Build Agent
+
+A build agent, also called a slave, is a dedicated server that the Jenkins master communicates with by sending it build task dispatches. As shown in the above graphic, each Agent is capable of running its own OS.
+
+### 3. Build Project
+
+The Build project defines the parameters for a specific software's build setup. There are different build requirements for different project types. The default build project on Jenkins are:
+
+* Freestyle project
+* Pipeline
+* Multi-configuration project
+* Folder
+* GitHub Organization
+* Multibranch Pipeline
+
+Each project choice is described in detail on the Jenkins UI.
+
+### 4. Label
+
+Grouping together various build agents based on user-defined metadata. Labels can be used to categorise Build Agents in a variety of ways, such as by operating system or by type of build technology.
+
+### 5. Node
+
+Labels all machines that can run a given build pipeline or project. The location of the execution can now be determined. Scripted pipelines make use of nodes.
+
+### 6. Agent
+
+Labels all machines that can run a given build pipeline or project. The location of the execution can now be determined. The Declarative pipeline employs agents.
+
+### 7. Artifact
+
+Created document when a construction has been completed. It could be a.NET assembly, a Java JAR, or even a simple ZIP archive. Artefacts are considered immutable and should not be changed outside of the construction process that originally created them. A fingerprint, which is a checksum of the relevant Artefact file, is used for tracking and tracing purposes.
+
+### 8. Pipeline
+
+A pipeline is a modelling concept that represents and encapsulates the fundamental building logic and process. Jenkins offers two <a href="https://dsstream.com/declarative-vs-scripted-pipeline-key-differences/" target="_blank">distinct syntaxes</a> for constructing pipelines:
+
+#### - Declarative Pipelines
+A Syntax with a strong point of view; the rules are more clearly laid out and rigid. They're less adaptable than scripted pipelines, but they're simpler to use if you don't know Groovy.
+
+#### - Scripted Pipelines
+Developed using the Groovy programming language, it allows you to make highly individualised processing pipelines. However, you will need Groovy expertise to get anything done. Those in charge of building and releasing software who aren't familiar with Groovy may not want to go through the additional learning curve.
+
+> Nowadays, declarative pipelines are more used as it is easier to learn and works with most SCM tools such as Gihub, Bitbucket and more. 
+
+Automated methods known as a CI/CD (Continuous Integration/Continuous Deployment) pipeline are used to continually integrate code changes, build and test applications, and deploy them to production. Getting updates out to users quickly and reliably is the main focus of a CI/CD workflow.
+
+The various **steps** that make up a **typical CI/CD** pipeline are as follows:
+
+- <u>Code Integration</u>: In this stage, developers combine their individual code updates into a central repository.
+- <u>Build</u>: In this stage, the CI system compiles the code and executes any tests at this point.
+- <u>Test</u>: This phase involves running various tests on the code, such as unit tests, integration tests, and full-stack tests.
+- <u>Deployment</u>: In this stage, The code is released into a live (prod) or test (staging) environment
+- <u>Monitoring</u>: This is usually the last stage. At this stage, the system checks in on the running application to make sure everything is running smoothly.
+
+### 9. Stage
+
+Used to divide the entire pipeline into smaller, more manageable chunks. Identifying discrete phases has various advantages:
+
+* Provides the framework for the pipeline's creator to implement order.
+* Used to display build status as the build is being executed.
+
+Clone, Build, Test, Packaging, and Deployment are all examples of typical phases in the CI/CD lifecycle.
+
+**A pipeline stage can be made up of many pipeline steps.**
+
+
+### 10. Step
+
+A pipeline step specifies a single build task and what should occur. A pipeline stage often encompasses several pipeline phases.
+
+
+### 11. Workspace
+
+A dedicated file system directory where build work for the current pipeline or build process is conducted. When debugging builds, this directory and its subdirectory structure are useful to investigate. The workspace will be generated on the build agent that the pipeline or build job is configured to run on.
+
+
+### 12. Downstream
+
+This refers to another pipeline or build job that will be triggered as a result of the current pipeline or build job.
+
+
+### 13. Upstream
+
+This job refers to the pipeline that started the current pipeline or build job.
+
+
+#### Jenkins Configuration
+
+A blog post on how to install Jenkins on AWS can be found here.
+
+Remember to save the "`initialAdminPassword`" value for the first time you log in.
+
+![text](https://github.com/apotitech/photos_document_md/raw/master/src/common/photos/j2a.png "text")
+
+![text](https://github.com/apotitech/photos_document_md/raw/master/src/common/photos/j3.png "text")
+
+To install commonly used plugins, select **Install suggested plugins**:
+
+![text](https://github.com/apotitech/photos_document_md/raw/master/src/common/photos/j4.png "text")
+
+After downloading the plugins, enter your **credentials** and click "**Save and Continue**" to access your dashboard.
+
+![text](https://github.com/apotitech/photos_document_md/raw/master/src/common/photos/j5a.PNG "text")
+
+## PROJECTS 
+Now that we've covered the fundamentals of Jenkins, let's get our hands dirty with some tasks and projects from the #90DaysofDevops challenge, which runs from Day 22 to Day 29.
+
+> **Create a sample freestyle pipeline that prints “Hello World!!**
+
+1. Using the Freestyle project, make a new object. Give it a name, for example, `HelloBuildJob`. On the bottom right, click `OK`.
+2. After you've created the project, go to the Configuration area and then to the "`Build Steps`" section, where you'll add the "`Execute Shell`" option.
+
+![text](https://github.com/apotitech/photos_document_md/raw/master/src/common/photos/j6.png "text")
+
+3. Add the shell command to print “Hello World!!” `echo "Hello World!!`
+
+![text](https://github.com/apotitech/photos_document_md/raw/master/src/common/photos/j7.png "text")
+
+4. Save
+
+5. Now, click the "`Build Now`" button. If everything is in order, you will see a green tick with the #1 next to it, indicating that the first build was successful.
+
+![text](https://github.com/apotitech/photos_document_md/raw/master/src/common/photos/j8.png "text")
+
+6. Click on the build number and look for the "`Hello World`" text on the Console page.
+
+![text](https://github.com/apotitech/photos_document_md/raw/master/src/common/photos/j9.png "text")
+
+That concludes the **first project**!
+
+## Task-01
+We will start first by creating an agent for our app. We will create a Jenkins freestyle project for this task.
+
+* App is a to-do app that may be found on this git repo.
+* As previously said, we will create a new item called toDoApp and select Freestyle Project as the build job. Select OK.
+
+![text](https://github.com/apotitech/photos_document_md/raw/master/src/common/photos/j10.png "text")
+
+* In the Configuration tab, select Github Project and enter the GitHub URL. Repeat the process in the "**Source Code Management**" section.
+
+![text](https://github.com/apotitech/photos_document_md/raw/master/src/common/photos/j11a.PNG "text")
+
+
+* Because the source code is in the default master branch, leave the rest as it is by default. If not, feel free to switch to the correct branch.
+* Add the command to create a Docker image for the container to the `build` steps.
+* Also, add a second command to run a container using the image you just created in the previous step.
+
+![text](https://github.com/apotitech/photos_document_md/raw/master/src/common/photos/j12.png "text")
+
+```bash
+docker build -t todoapp .
+docker run -d --name todoapp_c -p 8000:8000 todoapp
+```
+
+* You can now build the project by clicking the "`Build now`" button.
+
+![text](https://github.com/apotitech/photos_document_md/raw/master/src/common/photos/j13.png "text")
+
+![text](https://github.com/apotitech/photos_document_md/raw/master/src/common/photos/j14.png "text")
+
+
+* We can examine and notice that the source code has been cloned on the machine by inspecting the **workspace folder** under `/var/lib/jenkins/workspace`.
+
+![text](https://github.com/apotitech/photos_document_md/raw/master/src/common/photos/j15.png "text")
+
+## Task 02
+* Create a `Jenkins project` that will perform the command "`docker-compose up -d`" to start the several containers defined in the docker compose file.
+* Create a file called `docker-compose.yml` in your project folder.
+
+
+![text](https://github.com/apotitech/photos_document_md/raw/master/src/common/photos/j16.png "text")
+
+* Add a "`docker-compose down`" build step to destroy any containers defined in the **docker-compose** file. This helps to avoid containers that are incompatible.
+* Now, add the "`docker-compose up -d`" command to spin up new docker containers as per the content of the **docker-compose** file.
+
+![text](https://github.com/apotitech/photos_document_md/raw/master/src/common/photos/j17.png "text")
+
+The container has been launched as seen below:
+
+![text](https://github.com/apotitech/photos_document_md/raw/master/src/common/photos/j18.png "text")
+
+That's it for today!!!👋
+
+*Today we created our very first job with Jenkins our CI tool. We also looked at some simple jobs that we created using Jenkins.*
+
+**For our next article, we will create a [complete CI/CD Project](https://dev.to/softwaresennin/creating-our-first-complete-jenkins-cicd-pipeline-34a1) with Jenkins as our CI tool.** 
+
+> Thank you for taking the time to read this! If you like the article, please clap (up to 50 times!) and connect with me on [LinkedIn](https://www.linkedin.com/in/apotitech-b79097210/) and [Medium](https://medium.com/@softwaresennin) to remain up to speed on my future articles. 😅
