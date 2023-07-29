@@ -4,7 +4,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
   mode: 'jit',
   content: [
-    './src/pages/**/*.{astro,mdx}',
+    './src/pages/**/*.{astro,mdx,md}',
     './src/layouts/**/*.{js,ts,jsx,tsx,astro}',
     './src/components/**/*.{js,ts,jsx,tsx,astro}',
   ],
