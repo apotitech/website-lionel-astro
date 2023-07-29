@@ -27,22 +27,22 @@ ubuntu@ec2-3-135-209-28.us-east-2.compute.amazonaws.com
 aws ec2-instance-connect ssh --instance-id i-1234567890example --private-key-file /path/to/key.pem
 ```
 
-2. To install maven we need to do some reconfiguration. We will use this command to add a repo to our EC2 with a maven package
+1. To install maven we need to do some reconfiguration. We will use this command to add a repo to our EC2 with a maven package
 ```bash
 sudo wget https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
 ```
 
-3.  Next, we need to specify the version that we want to install. Enter the following to determine the version number for the packages that you want to install.
+1.  Next, we need to specify the version that we want to install. Enter the following to determine the version number for the packages that you want to install.
 ```bash
 sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
 ```
 
-4. Now we can install maven with our package installer. In this case we use Yum
+1. Now we can install maven with our package installer. In this case we use Yum
 ```bash
 sudo yum install -y apache-maven
 ```
 
-5. Jenkins, maven and every other java application needs java to be installed. Let us do that
+1. Jenkins, maven and every other java application needs java to be installed. Let us do that
 
 ```bash
 sudo yum install java-1.8.0-devel
