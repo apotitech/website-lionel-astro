@@ -4,16 +4,13 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
   mode: 'jit',
   content: [
-    './src/pages/**/*.{astro,mdx,md}',
+    './src/pages/**/*.{astro,mdx}',
     './src/layouts/**/*.{js,ts,jsx,tsx,astro}',
     './src/components/**/*.{js,ts,jsx,tsx,astro}',
   ],
   future: {
     hoverOnlyWhenSupported: true,
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
   theme: {
     container: {
       padding: {

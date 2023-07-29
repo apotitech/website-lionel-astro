@@ -5,9 +5,9 @@ export const get = async () => {
   const blogs = await getCollection('blog', blog => blog.data.draft !== true);
 
   return rss({
-    title: 'Blog by Lionel Tchami',
+    title: 'Blog by Thomas Ledoux',
     description:
-      'Blog by Lionel Tchami. Writes about Python/Cloud/DevOps/SDLC/AI. Always looking to learn about the newest technologies and features.',
+    'Blog by Lionel Tchami. Writes about Python/Cloud/DevOps/SDLC/AI. Always looking to learn about the newest technologies and features.',
     site: import.meta.env.SITE,
     items: blogs.map(post => ({
       link: `/blog/${post.slug}`,
